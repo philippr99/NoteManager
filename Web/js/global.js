@@ -1,0 +1,9 @@
+function onRegisterClick()
+{
+
+}
+
+function onLoginClick()
+{
+  
+}

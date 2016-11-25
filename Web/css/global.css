@@ -1,0 +1,36 @@
+body
+{
+  background-color: #8e44ad;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  top: 0px;
+  left: 0px;
+}
+
+#mainButtons
+{
+  position: relative;
+  width: 400px;
+  height: 200px;
+  margin: auto;
+  top: 35%;
+
+  border-style: solid;
+  border-width: 2px 2px 2px 2px;
+
+  background-color: #9b59b6;
+}
+
+#mainButtons .cButton
+{
+  position: relative;
+  margin-top: 25px;
+  left: 10%;
+  width: 80%;
+  height: 30%;
+
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
