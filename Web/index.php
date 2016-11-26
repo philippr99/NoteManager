@@ -1,3 +1,13 @@
+<?php
+  session_start();
+  if(isset($_SESSION['loggedIn']))
+  {
+    echo $_SESSION['loggedIn'];
+    echo 'logged in';
+  }
+
+ ?>
+
  <!doctype html5>
 <html>
   <head>
@@ -28,7 +38,7 @@
       {
         if(strcmp($action,'registered') === 0)
           echo '<script>swal("Hallo,","You are now registered!","success");</script>';
-        else if(strcmp($action,'acc_exists') == 0)
+        else if(strcmp($action,'acc_exists') === 0)
           echo '<script>swal("ERROR","the name is already in use!","error");</script>';
       }
      ?>
