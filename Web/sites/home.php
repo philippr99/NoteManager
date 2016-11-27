@@ -20,9 +20,9 @@
   <body>
 
     <div id="header">
-      <p><?php echo 'Welcome @'.$_SESSION['username'];?></p>
-      <a href="../sites/addPostSite.php">Add a note!</a>
-      <a href="../backend/logout.php">Logout</a>
+      <p class="tags" id="first"><?php echo 'Welcome @'.$_SESSION['username'];?></p>
+      <a class="tags" id="middle" href="../sites/addPostSite.php">Add a note!</a>
+      <a class="tags" id="last" href="../backend/logout.php">Logout</a>
     </div>
     <div id="center">
     </div>

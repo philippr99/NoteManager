@@ -29,4 +29,29 @@ body
 
   border-style: solid;
   border-width: 0px 0px 2px 0px;
+  margin:auto;
+}
+
+#header #middle
+{
+  margin-left: 35%;
+}
+
+#header .tags{
+  position: relative;
+  float:left;
+  line-height: 60px;
+  color:white;
+}
+
+#header #first
+{
+  left: 5%;
+}
+
+#header #last
+{
+  position: relative;
+  margin-right:5%;
+  float:right;
 }
