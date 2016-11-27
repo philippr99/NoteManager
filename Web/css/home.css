@@ -1,0 +1,32 @@
+body
+{
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+
+  background-color: white;
+}
+
+
+#center{
+  position: relative;
+  background-color: #8e44ad;
+  width: 95%;
+  height: 85%;
+  margin:auto;
+  top: 10%;
+}
+
+#header
+{
+  position: absolute;
+  background-color: gray;
+  width: 95%;
+  height: 10%;
+  top:0px;
+  left:2.5%;
+
+  border-style: solid;
+  border-width: 0px 0px 2px 0px;
+}

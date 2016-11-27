@@ -23,6 +23,7 @@
                     //is the real user
                     session_start();
                     $_SESSION['loggedIn'] = true;
+                    $_SESSION['username'] = $username;
                     echo '{"error": "none", "action": "none" ,"token" : "incomming"}';
                 }
             }
