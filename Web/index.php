@@ -41,6 +41,10 @@
           echo '<script>swal("Hello,","You are now registered!","success");</script>';
         else if(strcmp($action,'acc_exists') === 0)
           echo '<script>swal("ERROR","the name is already in use!","error");</script>';
+        else if(strcmp($action,'wrong_pw') === 0)
+          echo '<script>swal("ERROR","Wrong password","error");</script>';
+        else if(strcmp($action,'user_not_exists') === 0)
+          echo '<script>swal("ERROR","User doesn\'t exist!","error");</script>';
       }
      ?>
   </body>

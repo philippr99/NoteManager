@@ -25,11 +25,13 @@
       <a href="../backend/logout.php">Logout</a>
     </div>
     <div id="center">
-      <form id="postForm" action="../backend/addPost.php">
+      <form method="post" id="postForm" action="../backend/addPost.php">
           <p>Topic</p>
           <input type="text" name="topic">
+          <p>Category</p>
+          <input type="text" name="category">
           <input type="submit" value="Submit">
-          <textarea = name="comment" form="postForm">Type in your details</textarea>
+          <textarea = name="postText" form="postForm">Type in your details</textarea>
       </form>
     </div>
 
