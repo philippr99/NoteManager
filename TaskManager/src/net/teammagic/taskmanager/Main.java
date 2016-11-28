@@ -9,11 +9,12 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("taskmanager.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+    public void start(Stage loginStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        loginStage.setTitle("Task Manger Login");
+        loginStage.setScene(new Scene(root, 430, 300));
+        loginStage.setResizable(false);
+        loginStage.show();
     }
 
 

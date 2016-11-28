@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.teammagic.taskmanager.LoginController">
+   <children>
+      <TextField fx:id="textfield1" layoutX="141.0" layoutY="125.0" promptText="Username..." AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#00000066" offsetX="3.0" offsetY="3.0" />
+         </effect>
+      </TextField>
+      <PasswordField layoutX="141.0" layoutY="165.0" promptText="Password..." AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#00000066" offsetX="3.0" offsetY="3.0" />
+         </effect>
+      </PasswordField>
+      <Button layoutX="189.0" layoutY="223.0" mnemonicParsing="false" onAction="#login_click" text="Login" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" />
+      <Label layoutX="122.0" layoutY="58.0" text="Task Manager Login" textAlignment="CENTER" textFill="#aa1ab8" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="110.0">
+         <font>
+            <Font name="Garamond" size="26.0" />
+         </font>
+         <effect>
+            <MotionBlur radius="2.67" />
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>

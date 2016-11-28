@@ -9,6 +9,6 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("<init>");
+        System.out.println("<initialisation>");
     }
 }
