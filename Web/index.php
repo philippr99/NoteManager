@@ -2,8 +2,9 @@
   session_start();
   if(isset($_SESSION['loggedIn']))
   {
-    echo $_SESSION['loggedIn'];
-    echo 'logged in';
+    //echo $_SESSION['loggedIn'];
+    //echo 'logged in';
+    header('Location: ./sites/home.php');
   }
 
  ?>
@@ -37,9 +38,13 @@
       if(isset($action))
       {
         if(strcmp($action,'registered') === 0)
-          echo '<script>swal("Hallo,","You are now registered!","success");</script>';
+          echo '<script>swal("Hello,","You are now registered!","success");</script>';
         else if(strcmp($action,'acc_exists') === 0)
           echo '<script>swal("ERROR","the name is already in use!","error");</script>';
+        else if(strcmp($action,'wrong_pw') === 0)
+          echo '<script>swal("ERROR","Wrong password","error");</script>';
+        else if(strcmp($action,'user_not_exists') === 0)
+          echo '<script>swal("ERROR","User doesn\'t exist!","error");</script>';
       }
      ?>
   </body>

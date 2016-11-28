@@ -11,9 +11,12 @@ function sendPostRequestLogin(isLogin, username,password)
       console.log('here');
       console.log(data);
 
-      if(data.error == 'none' && data.action == 'registered') $(location).attr('href', '../index.php?action=registered');//swal("Hallo,","You are now registered!","success");
-      else if(data.error == 'name_exists') $(location).attr('href', '../index.php?action=acc_exists');//swal("ERROR","the name is already in use!","error");
-      else if(data.error == 'none' && data.action == 'none') $(location).attr('href', '../index.php');
+      if(data.error == 'none' && data.action == 'registered') setTimeout(function(){$(location).attr('href', '../index.php?action=registered');},250);//swal("Hallo,","You are now registered!","success");
+      else if(data.error == 'name_exists') setTimeout(function(){$(location).attr('href', '../index.php?action=acc_exists');},250);//swal("ERROR","the name is already in use!","error");
+      else if(data.error == 'none' && data.action == 'none') setTimeout(function(){$(location).attr('href', '../index.php');},250);
+      else if(data.error == 'wrong_pw') setTimeout(function(){$(location).attr('href', '../index.php?action=wrong_pw');},250);
+      else if(data.error == 'user_not_exists') setTimeout(function(){$(location).attr('href', '../index.php?action=user_not_exists');},250);
+
     }
   });
 }
