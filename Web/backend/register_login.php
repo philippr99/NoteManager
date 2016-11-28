@@ -34,10 +34,10 @@
 
                     $_SESSION['sessionID'] = $sessionID;
 
-                    echo '{"error": "none", "action": "none" ,"token" : '.$sessionID.'}';
+                    echo '{"error": "none", "action": "none" ,"token" : "'.$sessionID.'"}';
                 }else
                 {
-                  echo '{"error": "wrong_pw", "action": "none" ,"token" : "none"}';
+                    echo '{"error": "wrong_pw", "action": "none" ,"token" : "none"}';
                 }
                 $db = null;
                 die();
