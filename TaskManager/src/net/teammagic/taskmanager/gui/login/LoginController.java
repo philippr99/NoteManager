@@ -1,42 +1,52 @@
 package net.teammagic.taskmanager.gui.login;
 
-import javafx.animation.Animation;
-import javafx.animation.Transition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
-import javafx.util.Duration;
+import javafx.stage.Stage;
+import net.teammagic.taskmanager.Main;
+import net.teammagic.taskmanager.gui.home.HomeController;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+public class LoginController {
 
-public class LoginController implements Initializable{
+    @FXML
+    private TextField txt_username;
+    @FXML
+    private PasswordField txt_password;
+    @FXML
+    private Label lbl_loginerror;
 
-    @FXML private TextField txt_username;
-    @FXML private PasswordField txt_password;
-    @FXML private Label lbl_loginerror;
+    private static Stage loginStage;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("<initialisation>");
+    public static void initLoginWindow(Stage rootStage) {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(Main.class.getResource("gui/login/login.fxml"));
+        } catch (Exception e) {
+            System.out.println("Resource /login.fxml not found or damaged! exiting...");
+            System.exit(-1);
+        }
+
+        loginStage = rootStage;
+        loginStage.setTitle("Task Manger Login");
+        loginStage.setScene(new Scene(root));
+        loginStage.setResizable(false);
+        loginStage.show();
     }
 
     @FXML
-    public void login_click(ActionEvent actionEvent) {
+    public void login_click() {
         if (!txt_username.getText().equals("user") || !txt_password.getText().equals("pass")) {
             lbl_loginerror.setVisible(true);
             txt_username.setText("");
             txt_password.setText("");
-        }
-        else {
-            System.out.println("login valid");
-            lbl_loginerror.setVisible(false);
+        } else {
+            loginStage.close();
+            HomeController.initHomeWindow();
         }
     }
-
-
 }
