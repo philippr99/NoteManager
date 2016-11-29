@@ -45,7 +45,7 @@
           die();
       }
     }
-    echo '{"result" : "error"}';
+    echo '{"result" : "error","reason" : "wrong_session_id"}';
   }
 
  ?>
