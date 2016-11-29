@@ -8,7 +8,7 @@
 <?import javafx.scene.effect.MotionBlur?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="300.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.teammagic.taskmanager.LoginController">
+<AnchorPane prefHeight="300.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.teammagic.taskmanager.gui.login.LoginController">
    <children>
       <TextField fx:id="txt_username" layoutY="125.0" promptText="Username..." AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0">
          <effect>

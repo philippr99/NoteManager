@@ -1,4 +1,4 @@
-package net.teammagic.taskmanager;
+package net.teammagic.taskmanager.gui.login;
 
 import javafx.animation.Animation;
 import javafx.animation.Transition;
