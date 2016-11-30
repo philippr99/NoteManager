@@ -5,6 +5,7 @@
     header('Location: ../index.php');
   }
 
+   ini_set('display_errors', 'On'); //display error
  ?>
 
  <!doctype html5>
@@ -25,6 +26,22 @@
       <a class="tags" id="last" href="../backend/logout.php">Logout</a>
     </div>
     <div id="center">
+      <?php
+          require('../backend/settings.php');
+          $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName, $dbUserName, $dbPassword);
+          $getNoteData = $db->prepare("SELECT * FROM comments WHERE name=:username");
+          $getNoteData->bindParam(':username',$_SESSION['username']);
+          //      $db->exec("CREATE TABLE IF NOT EXISTS comments(name varchar(100),uniqid varchar(100),topic varchar(100), category varchar(100),textPost text)");
+          if($getNoteData->execute())
+          {
+            while($row = $getNoteData->fetch())
+            {
+              echo '<div class="note"><h1>'.$row[2].'</h1><p>'.$row[4].'</p></div>';
+            }
+          }
+          $db = null;
+
+       ?>
     </div>
 
     <!-- Scripts -->

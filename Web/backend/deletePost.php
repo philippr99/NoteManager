@@ -10,11 +10,11 @@
   if(isset($sessionID))
   {
     //getting username
-    $getSession = $db->prepare("SELECT name FROM users WHERE session=:sessionID");
-    $getSession->bindParam(':sessionID',$sessionID);
-    if($getSession->execute())
+    $getUsername = $db->prepare("SELECT name FROM users WHERE session=:sessionID");
+    $getUsername->bindParam(':sessionID',$sessionID);
+    if($getUsername->execute())
     {
-      while($row = $getSession->fetch())
+      while($row = $getUsername->fetch())
       {
           $username = $row[0];
           $username = $_SESSION['username'];
