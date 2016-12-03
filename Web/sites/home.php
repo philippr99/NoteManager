@@ -36,7 +36,7 @@
           {
             while($row = $getNoteData->fetch())
             {
-              echo '<div class="note"><h1>'.$row[2].'</h1><p>'.$row[4].'</p></div>';
+              echo '<div class="note"><span onclick="deletePostEvent(this)" class="glyphicon glyphicon-remove removePost"><p class="hash">'.$row[1].'</p></span><h1>'.$row[2].'</h1><p>'.$row[4].'</p></div>';
             }
           }
           $db = null;

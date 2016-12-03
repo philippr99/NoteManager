@@ -5,7 +5,7 @@ body
   left: 0px;
   height: auto;
   min-height: 100%;
-  background-color: white;
+
 }
 
 
@@ -13,10 +13,11 @@ body
   position: absolute;
   background-color: #8e44ad;
   width: 95%;
-  bottom: 5%;
   left:2.5%;
   top: 10%;
-  overflow-y: scroll;
+  padding-bottom: 4%;
+  height:auto;
+  min-height: 88%;
 }
 
 #header
@@ -60,18 +61,33 @@ body
 .note
 {
   position: relative;
-  float:left;
+  float: left;
   left: 2.5%;
   margin-right: 2.5%;
   margin-bottom:2.5%;
   top: 20px;
   width:30%;
-  height:40%;
+  height:240px;
   background-color: #ecf0f1;
   padding: 10px;
+  overflow: hidden;
 
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 
+}
+
+.removePost
+{
+  float: right;
+}
+
+.removePost:hover{
+  color:red;
+}
+
+.hash{
+  display:none;
+  visibility: hidden;
 }
