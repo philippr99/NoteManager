@@ -15,15 +15,16 @@
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" type="text/css" href="../css/sweetalert.css">
     <link rel="stylesheet" href="../css/swal-forms.css">
+    <link rel="stylesheet" href="../css/addPostSite.css">
     <title>Manage your Tasks</title>
   </head>
   <body>
-
     <div id="header">
-      <p><?php echo '@'.$_SESSION['username'];?></p>
-      <a href="../sites/home.php">Back</a>
-      <a href="../backend/logout.php">Logout</a>
+      <p class="tags" id="first"><?php echo '@'.$_SESSION['username'];?></p>
+      <a class="tags" id="last" href="../backend/logout.php">Logout</a>
+      <a class="tags" id="last" href="../sites/home.php">Back</a>
     </div>
+
     <div id="center">
       <form method="post" id="postForm" action="../backend/addPost.php">
           <p>Topic</p>
