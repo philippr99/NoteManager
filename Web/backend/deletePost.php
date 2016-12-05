@@ -1,24 +1,25 @@
 <?php
-  require('./settings.php');
-  ini_set('display_errors', 'On'); //display error
+  include('settings.php');
   session_start();
+  $sessionID = $_POST['sessionID'];
   $noteID = $_POST['noteID'];
-  if(!isset($noteID)) die('{"result" : "error"}');
+  if(!isset($noteID) die("No noteID!");
 
   $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName, $dbUserName, $dbPassword);
-  if(isset($_POST['sessionID']))
+
+  if(isset($sessionID))
   {
-    $sessionID = $_POST['sessionID'];
     //getting username
-    $getUsername = $db->prepare("SELECT name FROM users WHERE session=:sessionID");
-    $getUsername->bindParam(':sessionID',$sessionID);
-    if($getUsername->execute())
+    $getSession = $db->prepare("SELECT name FROM users WHERE session=:sessionID");
+    $getSession->bindParam(':sessionID',$sessionID);
+    if($getSession->execute())
     {
-      while($row = $getUsername->fetch())
+      while($row = $getSession->fetch())
       {
           $username = $row[0];
-          $stmt = $db->prepare("DELETE FROM comments WHERE name=:username AND uniqid=:noteID");
-          $stmt->bindParam(':username',$username);
+          $username = $_SESSION['username'];
+          $stmt = $db->prepare("DELETE * FROM comments WHERE name=:username AND uniqid=:noteID");
+          $stmt->bindParam(':name',$username);
           $stmt->bindParam(':noteID',$noteID);
           $stmt->execute();
 

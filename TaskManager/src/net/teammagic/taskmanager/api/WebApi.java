@@ -1,5 +1,7 @@
 package net.teammagic.taskmanager.api;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.io.*;
 import java.net.*;
 import java.rmi.UnexpectedException;
@@ -46,6 +48,11 @@ public class WebApi {
         }
 
         return null;
+    }
+
+    public String getMD5(String input)
+    {
+        throw new NotImplementedException();
     }
 
 
