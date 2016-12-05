@@ -1,11 +1,8 @@
 package net.teammagic.taskmanager.api;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
+import java.io.*;
+import java.net.*;
+import java.rmi.UnexpectedException;
 
 /**
  * Created by s3now on 12/3/16.
@@ -16,35 +13,45 @@ public class WebApi {
     private String sessionID;
 
     public WebApi(){
-
+       //example:  String result = postRequest("http://localhost/backend/register_login.php",new PostArgument<Integer>("isLogin",1),new PostArgument<String>("username","test"),new PostArgument<String>("password","hase"));
     }
 
-    public void postRequest(String urlI, String ...keyValues){
-
-        if(keyValues.length % 2 != 0) try {
-            throw new Exception("Not enough arguments!");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+    public String postRequest(String urlI, PostArgument ...postArguments){
         try {
             URL url = new URL(urlI);
-            URLConnection con = url.openConnection();
+
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setDoOutput(true);
+            con.setRequestMethod("POST");
+
             PrintStream ps = new PrintStream(con.getOutputStream());
-            for(int i = 0; i < keyValues.length; i+=2)
-            {
-                ps.print(keyValues[i]+"="+keyValues[i+1]);
-            }
+            for(PostArgument argue : postArguments)
+                ps.print(argue.getKey()+"="+argue.getValue()+"&");
+            ps.flush();
 
             InputStream answer = con.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(answer));
+            String result = reader.readLine();
 
             ps.close();
+            reader.close();
+            answer.close();
+            con.disconnect();
+            return result;
         } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (ProtocolException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        try {
+            throw new UnexpectedException("No answer, maybe server down!");
+        } catch (UnexpectedException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
 

@@ -9,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import net.teammagic.taskmanager.Main;
+import net.teammagic.taskmanager.api.WebApi;
 import net.teammagic.taskmanager.gui.home.HomeController;
 
 public class LoginController {
