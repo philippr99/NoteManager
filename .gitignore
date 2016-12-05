@@ -53,3 +53,13 @@ fabric.properties
 # .idea/misc.xml 
 # *.ipr
 
+.idea/.name
+.idea/Task Manager.iml
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+TaskManager/out/production/TaskManager/net/teammagic/taskmanager/api/PostArgument$ARGS.class

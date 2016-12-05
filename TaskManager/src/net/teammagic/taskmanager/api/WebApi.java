@@ -4,39 +4,33 @@ import java.io.*;
 import java.net.*;
 import java.rmi.UnexpectedException;
 
-/**
- * Created by s3now on 12/3/16.
- */
 public class WebApi {
 
-    private String username,password;
-    private String sessionID;
+    String urlI;
 
-    public WebApi(){
-       //example:  String result = postRequest("http://localhost/backend/register_login.php",new PostArgument<Integer>("isLogin",1),new PostArgument<String>("username","test"),new PostArgument<String>("password","hase"));
+    public WebApi(String urlI) {
+        this.urlI = urlI;
     }
 
-    public String postRequest(String urlI, PostArgument ...postArguments){
+    public String postRequest(PostArgument... postArguments) {
         try {
             URL url = new URL(urlI);
 
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-            con.setDoOutput(true);
-            con.setRequestMethod("POST");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setDoOutput(true);
+            connection.setRequestMethod("POST");
 
-            PrintStream ps = new PrintStream(con.getOutputStream());
-            for(PostArgument argue : postArguments)
-                ps.print(argue.getKey()+"="+argue.getValue()+"&");
-            ps.flush();
+            PrintStream ps = new PrintStream(connection.getOutputStream());
+            for (PostArgument argue : postArguments)
+                ps.print(argue.getKey() + "=" + argue.getValue() + "&");
 
-            InputStream answer = con.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(answer));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String result = reader.readLine();
 
             ps.close();
             reader.close();
-            answer.close();
-            con.disconnect();
+            connection.disconnect();
+
             return result;
         } catch (MalformedURLException e) {
             e.printStackTrace();

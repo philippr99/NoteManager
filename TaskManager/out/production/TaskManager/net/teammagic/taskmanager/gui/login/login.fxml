@@ -25,12 +25,20 @@
                 <DropShadow blurType="GAUSSIAN" color="#00000066" offsetX="3.0" offsetY="3.0"/>
             </effect>
         </PasswordField>
-        <Button layoutY="224.0" onAction="#login_click" text="Login" textAlignment="CENTER" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0">
+        <Button layoutY="224.0" onAction="#login_click" text="Login" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="250.0">
             <font>
-                <Font name="Nirmala UI Bold" size="13.0"/>
+                <Font name="Nirmala UI Bold" size="13.0" />
             </font>
             <effect>
-                <DropShadow blurType="GAUSSIAN" color="#00000066" offsetX="3.0" offsetY="3.0"/>
+                <DropShadow blurType="GAUSSIAN" color="#00000066" offsetX="3.0" offsetY="3.0" />
+            </effect>
+        </Button>
+        <Button layoutY="224.0" onAction="#register_click" text="Register" textAlignment="CENTER" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="100.0">
+            <font>
+                <Font name="Nirmala UI Bold" size="13.0" />
+            </font>
+            <effect>
+                <DropShadow blurType="GAUSSIAN" color="#00000066" offsetX="3.0" offsetY="3.0" />
             </effect>
         </Button>
         <Label fx:id="lbl_loginerror" layoutY="270" text="Login failed! Wrong username or password." textAlignment="CENTER" visible="false" AnchorPane.leftAnchor="104" AnchorPane.rightAnchor="100"/>

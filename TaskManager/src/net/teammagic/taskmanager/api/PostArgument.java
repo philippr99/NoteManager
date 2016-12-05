@@ -1,8 +1,5 @@
 package net.teammagic.taskmanager.api;
 
-/**
- * Created by s3now on 12/5/16.
- */
 public class PostArgument<ValueType> {
 
     private String key;
@@ -22,4 +19,7 @@ public class PostArgument<ValueType> {
         return value;
     }
 
+    public enum ARGS {
+        isLogin, username, password, noteID, sessionID, topic, postText, category;
+    }
 }
