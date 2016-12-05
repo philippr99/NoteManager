@@ -13,8 +13,21 @@ if(isset($_POST['sessionID']))
   {
     while($row = $getUsername->fetch())
     {
+        echo '{';
         $username = $row[0];
-        
+        $getNoteData = $db->prepare("SELECT * FROM comments WHERE name=:username");
+        $getNoteData->bindParam(':username',$username);
+        if($getNoteData->execute())
+        {
+          while($row = $getNoteData->fetch())
+          {
+            //name varchar(100),uniqid varchar(100),topic varchar(100), category varchar(100),textPost text)");
+
+            echo '"'.$row[1].'":{"topic":"'.$row[2].'", "category":"'.$row[3].'", "post":"'.$row[4] .'"}';
+          }
+        }
+
+        echo '}';
 
         $db = null;
         die();

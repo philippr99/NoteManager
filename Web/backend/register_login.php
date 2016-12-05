@@ -7,7 +7,6 @@
 
   if(isset($isLogin) && isset($username) && isset($password))
   {
-    echo 'set';
     try{
       $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName, $dbUserName, $dbPassword);
       $db->exec("CREATE TABLE IF NOT EXISTS users(name varchar(100), password varchar(100), session varchar(100))"); //delete later!
