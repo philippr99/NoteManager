@@ -25,14 +25,20 @@
       <a class="tags" id="last" href="../sites/home.php">Back</a>
     </div>
 
-    <div id="center">
+    <div id="formCenter">
       <form method="post" id="postForm" action="../backend/addPost.php">
+        <div class="inputField">
           <p>Topic</p>
           <input type="text" name="topic">
+        </div>
+        <div class="inputField">
           <p>Category</p>
           <input type="text" name="category">
-          <input type="submit" value="Submit">
+        </div>
+          <p>Note</p>
           <textarea = name="postText" form="postForm">Type in your details</textarea>
+          <br></br>
+          <input type="submit" value="Submit">
       </form>
     </div>
 
