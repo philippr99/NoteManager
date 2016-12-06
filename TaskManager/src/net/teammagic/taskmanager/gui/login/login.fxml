@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="300.0" prefWidth="430.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="net.teammagic.taskmanager.gui.login.LoginController">
+
+<AnchorPane prefHeight="300.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.teammagic.taskmanager.gui.login.LoginController">
     <children>
         <Label layoutY="58.0" text="Task Manager Login" textAlignment="CENTER" textFill="#9c118b" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="110.0">
             <font>
-                <Font name="Garamond" size="26.0"/>
+                <Font name="Garamond" size="26.0" />
             </font>
             <effect>
-                <MotionBlur radius="2.67"/>
-                <DropShadow blurType="GAUSSIAN" color="#00000066" offsetX="3.0" offsetY="3.0"/>
+                <MotionBlur radius="2.67" />
+                <DropShadow blurType="GAUSSIAN" color="#00000066" offsetX="3.0" offsetY="3.0" />
             </effect>
         </Label>
         <TextField fx:id="txt_username" layoutY="125.0" promptText="Username..." AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0">
             <effect>
-                <DropShadow blurType="GAUSSIAN" color="#00000066" offsetX="3.0" offsetY="3.0"/>
+                <DropShadow blurType="GAUSSIAN" color="#00000066" offsetX="3.0" offsetY="3.0" />
             </effect>
         </TextField>
-        <PasswordField fx:id="txt_password" layoutY="165.0" promptText="Password..." AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0">
+        <PasswordField fx:id="txt_password" layoutY="165.0" onMouseEntered="#enterPWfield" promptText="Password..." AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0">
             <effect>
-                <DropShadow blurType="GAUSSIAN" color="#00000066" offsetX="3.0" offsetY="3.0"/>
+                <DropShadow blurType="GAUSSIAN" color="#00000066" offsetX="3.0" offsetY="3.0" />
             </effect>
         </PasswordField>
         <Button layoutY="224.0" onAction="#login_click" text="Login" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="250.0">
@@ -41,6 +44,6 @@
                 <DropShadow blurType="GAUSSIAN" color="#00000066" offsetX="3.0" offsetY="3.0" />
             </effect>
         </Button>
-        <Label fx:id="lbl_loginerror" layoutY="270" text="Login failed! Wrong username or password." textAlignment="CENTER" visible="false" AnchorPane.leftAnchor="104" AnchorPane.rightAnchor="100"/>
+        <Label fx:id="lbl_loginerror" layoutY="270" text="Login failed! Wrong username or password." textAlignment="CENTER" visible="false" AnchorPane.leftAnchor="104" AnchorPane.rightAnchor="100" />
     </children>
 </AnchorPane>
