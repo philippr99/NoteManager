@@ -18,12 +18,19 @@
     <link rel="stylesheet" type="text/css" href="./css/sweetalert.css">
     <link rel="stylesheet" href="./css/swal-forms.css">
     <link rel="icon" href="./assets/logo/logo-transparent.png">
+     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
     <title>NoteManager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
   </head>
   <body>
     <div id="mainButtons">
       <button class="cButton btn btn-default" onclick="onRegisterClick()">Register</button>
       <button class="cButton btn btn-default" onclick="onLoginClick()">Login</button>
+    </div>
+
+    <div id="downloadProgramm">
+      <img id="logo" src="./assets/logo/logo-transparent.png" alt="notemanager logo" width="64" height="64">
+      <a href="download/desktopb2.0.jar">Download TaskManager for Desktop b2.0</a>
     </div>
 
     <!-- Scripts -->

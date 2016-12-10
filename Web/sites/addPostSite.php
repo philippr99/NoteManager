@@ -16,7 +16,8 @@
     <link rel="stylesheet" type="text/css" href="../css/sweetalert.css">
     <link rel="stylesheet" href="../css/swal-forms.css">
     <link rel="stylesheet" href="../css/addPostSite.css">
-    <link rel="icon" href="./assets/logo/logo-transparent.png">
+    <link rel="icon" href="../assets/logo/logo-transparent.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
     <title>NoteManager</title>
   </head>
   <body>
@@ -30,14 +31,14 @@
       <form method="post" id="postForm" action="../backend/addPost.php">
         <div class="inputField">
           <p>Topic</p>
-          <input type="text" name="topic">
+          <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" name="topic">
         </div>
         <div class="inputField">
           <p>Category</p>
-          <input type="text" name="category">
+          <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" name="category">
         </div>
           <p>Note</p>
-          <textarea = name="postText" form="postForm">Type in your details</textarea>
+          <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="postText" form="postForm">Type in your details</textarea>
           <br></br>
           <input type="submit" value="Submit">
       </form>

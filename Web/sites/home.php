@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" type="text/css" href="../css/sweetalert.css">
     <link rel="stylesheet" href="../css/swal-forms.css">
-    <link rel="icon" href="./assets/logo/logo-transparent.png">
+    <link rel="icon" href="../assets/logo/logo-transparent.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
     <title>NoteManager</title>
   </head>
   <body>
