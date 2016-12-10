@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" type="text/css" href="./css/sweetalert.css">
     <link rel="stylesheet" href="./css/swal-forms.css">
-    <title>Todolist - TaskManager</title>
+    <link rel="icon" href="./assets/logo/logo-transparent.png">
+    <title>NoteManager</title>
   </head>
   <body>
     <div id="mainButtons">

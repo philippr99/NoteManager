@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" type="text/css" href="../css/sweetalert.css">
     <link rel="stylesheet" href="../css/swal-forms.css">
-    <title>Manage your Tasks</title>
+    <link rel="icon" href="./assets/logo/logo-transparent.png">
+    <title>NoteManager</title>
   </head>
   <body>
 
