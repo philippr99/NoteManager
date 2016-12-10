@@ -6,12 +6,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import net.teammagic.taskmanager.Main;
+import net.teammagic.taskmanager.api.PostArgument;
+import net.teammagic.taskmanager.api.PostArgument.ARGS;
+import net.teammagic.taskmanager.api.WebApi;
 
 public class HomeController {
 
     private static Stage homeStage;
 
-    public static void initHomeWindow() {
+    public static void initHomeWindow(String session) {
         Parent root = null;
         try {
             root = FXMLLoader.load(Main.class.getResource("gui/home/home.fxml"));
@@ -24,5 +27,9 @@ public class HomeController {
         homeStage.setScene(new Scene(root));
         homeStage.setResizable(false);
         homeStage.show();
+
+        WebApi api = new WebApi("http://teammagic722.bplaced.net/backend/listTasks.php");
+        String result = api.postRequest(new PostArgument<>(ARGS.sessionID.toString(), "NULL"));
+        System.out.println(result);
     }
 }

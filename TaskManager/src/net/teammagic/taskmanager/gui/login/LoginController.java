@@ -47,11 +47,12 @@ public class LoginController {
         String result = api.postRequest(new PostArgument<>(ARGS.isLogin.toString(), 1), new PostArgument<>(ARGS.username.toString(), txt_username.getText()),
                 new PostArgument<>(ARGS.password.toString(), txt_password.getText()));
 
-        if (result.indexOf("{\"error\": \"none\",") == 0){
+        String token = result.substring(result.lastIndexOf(": \"", result.length() - 2) + 3, result.length() - 2);
+
+        if (result.indexOf("{\"error\": \"none\",") == 0) {
             loginStage.close();
-            HomeController.initHomeWindow();
-        }
-        else {
+            HomeController.initHomeWindow(token);
+        } else {
             lbl_loginerror.setVisible(true);
             txt_password.setText("");
         }
@@ -62,5 +63,9 @@ public class LoginController {
         WebApi api = new WebApi("http://teammagic722.bplaced.net/backend/register_login.php"); //"http://teammagic722.bplaced.net/backend/register_login.php"
         String result = api.postRequest(new PostArgument<>(ARGS.isLogin.toString(), 0), new PostArgument<>(ARGS.username.toString(), txt_username.getText()),
                 new PostArgument<>(ARGS.password.toString(), txt_password.getText()));
+    }
+
+    public void enterPWfield() {
+        lbl_loginerror.setVisible(false);
     }
 }

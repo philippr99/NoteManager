@@ -50,10 +50,8 @@ public class WebApi {
         return null;
     }
 
-    public String getMD5(String input)
+    public String textToMD5(String input)
     {
         throw new NotImplementedException();
     }
-
-
 }
