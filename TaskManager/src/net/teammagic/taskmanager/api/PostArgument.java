@@ -20,6 +20,6 @@ public class PostArgument<ValueType> {
     }
 
     public enum ARGS {
-        isLogin, username, password, noteID, sessionID, topic, postText, category;
+        isLogin, username, password, sessionID, topic, postText, category
     }
 }

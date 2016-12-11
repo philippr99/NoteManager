@@ -49,13 +49,14 @@ public class LoginController {
 
         String token = result.substring(result.lastIndexOf(": \"", result.length() - 2) + 3, result.length() - 2);
 
-        if (result.indexOf("{\"error\": \"none\",") == 0) {
-            loginStage.close();
+        if (result.startsWith("{\"error\": \"none\"")) {
             HomeController.initHomeWindow(token);
-        } else {
-            lbl_loginerror.setVisible(true);
-            txt_password.setText("");
-        }
+            loginStage.close();
+        } else if (result.startsWith("{\"error\": \"wrong_pw\"")) {
+            showError("Login failed! Wrong password.");
+        } else if (result.startsWith("'{\"error\": \"user_not_exists\"")) {
+            showError("Login failed! User does not exist.");
+        } else showError("Login failed! Unknown username or error.");
     }
 
     @FXML
@@ -63,9 +64,18 @@ public class LoginController {
         WebApi api = new WebApi("http://teammagic722.bplaced.net/backend/register_login.php"); //"http://teammagic722.bplaced.net/backend/register_login.php"
         String result = api.postRequest(new PostArgument<>(ARGS.isLogin.toString(), 0), new PostArgument<>(ARGS.username.toString(), txt_username.getText()),
                 new PostArgument<>(ARGS.password.toString(), txt_password.getText()));
+
+        if (result.startsWith("{\"error\": \"name_exists\"")) showError("Registration failed! Username already exists");
+        else showError("Registration completed!");
     }
 
     public void enterPWfield() {
         lbl_loginerror.setVisible(false);
+    }
+
+    private void showError(String message) {
+        lbl_loginerror.setText(message);
+        lbl_loginerror.setVisible(true);
+        txt_password.setText("");
     }
 }
