@@ -1,11 +1,12 @@
 package net.teammagic.taskmanager.model;
 
 import com.google.gson.Gson;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class PostTextFormatter {
-    String title, category, details;
+    public String title, category, details;
 
     public PostTextFormatter(String title, String category, String details) {
         this.title = title;
@@ -13,25 +14,39 @@ public class PostTextFormatter {
         this.details = details;
     }
 
-    public static ObservableList<PostTextFormatter> getItems(String requestResult) {
-        requestResult =  requestResult.replace("}\"", "},\"");  //delete after changing php script
+    public String getTitle() {
+        return title;
+    }
 
-        System.out.println(requestResult);
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public static ObservableList<PostTextFormatter> getItems(String requestResult) {
         Gson json = new Gson();
 
-        TableContent ptf = json.fromJson(requestResult, TableContent.class);
-        System.out.println(ptf);
-
-
-
-        //String[] posts = requestResult.split("\"topic\":\"|\", \"category\":\"|\", \"post\":\"");
-        //String[] posts = requestResult.split("\\{");
-
+        TableContent[] ptf = json.fromJson(requestResult, TableContent[].class);
         ObservableList<PostTextFormatter> contents = FXCollections.observableArrayList();
-//        contents.add(new PostTextFormatter("title", "cat", "detail"));
-//        contents.add(new PostTextFormatter("title2", "cat2", "detail2"));
-//        contents.add(new PostTextFormatter("title3", "cat3", "detail3"));
-//        contents.add(new PostTextFormatter("title4", "cat4", "detail4"));
+        for(TableContent tbc : ptf)
+        {
+            contents.add(new PostTextFormatter(tbc.topic,tbc.category,tbc.post));
+        }
 
         return contents;
     }

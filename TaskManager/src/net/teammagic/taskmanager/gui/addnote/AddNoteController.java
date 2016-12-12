@@ -13,7 +13,9 @@ import net.teammagic.taskmanager.Main;
 import net.teammagic.taskmanager.api.PostArgument;
 import net.teammagic.taskmanager.api.PostArgument.ARGS;
 import net.teammagic.taskmanager.api.WebApi;
+import net.teammagic.taskmanager.gui.WindowManager;
 import net.teammagic.taskmanager.gui.home.HomeController;
+import net.teammagic.taskmanager.model.Data;
 
 public class AddNoteController {
     @FXML
@@ -21,30 +23,9 @@ public class AddNoteController {
     @FXML
     private TextArea txt_text;
     @FXML
-    private TextArea txt_category;
+    public static TextArea txt_category;
     @FXML
     private Label lbl_error;
-
-    private static Stage addNoteStage;
-    private static String sessionID;
-
-    public static void initHomeWindow(String token) {
-        sessionID = token;
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(Main.class.getResource("gui/addnote/addnote.fxml"));
-        } catch (Exception e) {
-            System.out.println("Resource /addnote.fxml not found or damaged! exiting...");
-            System.exit(-1);
-        }
-        addNoteStage = new Stage(StageStyle.DECORATED);
-        addNoteStage.initModality(Modality.WINDOW_MODAL);
-        addNoteStage.initOwner(HomeController.getHomeStage());
-        addNoteStage.setTitle("Task Manager - Add Note");
-        addNoteStage.setScene(new Scene(root));
-        addNoteStage.setResizable(false);
-        addNoteStage.show();
-    }
 
     @FXML
     void clear_click() {
@@ -63,7 +44,7 @@ public class AddNoteController {
             System.out.println(text);
 
             String result = api.postRequest(new PostArgument<>(ARGS.topic.toString(), txt_title.getText()), new PostArgument<>(ARGS.category.toString(), txt_category.getText()),
-                    new PostArgument<>(ARGS.postText.toString(), text), new PostArgument<>(ARGS.sessionID.toString(), sessionID));
+                    new PostArgument<>(ARGS.postText.toString(), text), new PostArgument<>(ARGS.sessionID.toString(), Data.sessionID));
 
             System.out.println("Add Note Message: " + result);
         }

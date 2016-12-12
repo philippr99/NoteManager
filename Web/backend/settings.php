@@ -1,6 +1,6 @@
 <?php
-  $dbName = "teammagic722";
-  $dbUserName = "teammagic722";
-  $dbPassword = "team722holz";
+  $dbName = "todolist";
+  $dbUserName = "todolist";
+  $dbPassword = "123456";
   $dbHost = "localhost";
  ?>

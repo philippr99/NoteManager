@@ -6,7 +6,6 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <BorderPane fx:id="borderPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.teammagic.taskmanager.gui.home.HomeController">
     <top>
         <VBox prefHeight="61.0" prefWidth="600.0" BorderPane.alignment="CENTER">
@@ -54,33 +53,7 @@
                                 <Font name="Nirmala UI Bold" size="13.0"/>
                             </font>
                         </Button>
-                        <!--<ImageView fx:id="img_plus" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                            <HBox.margin>
-                                <Insets left="6.0" />
-                            </HBox.margin>
-                        </ImageView>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                            <HBox.margin>
-                                <Insets left="6.0" />
-                            </HBox.margin>
-                            <image>
-                                <Image fx:id="img_minus" backgroundLoading="true" url="@../../../../../../assets/Icons/fi-minus.png" />
-                            </image>
-                        </ImageView>
-                        <TextField focusTraversable="false" promptText="search...">
-                            <HBox.margin>
-                                <Insets left="50.0" top="2.0"/>
-                            </HBox.margin>
-                            <cursor>
-                                <Cursor fx:constant="TEXT"/>
-                            </cursor>
-                        </TextField>-->
                         <Pane HBox.hgrow="ALWAYS"/>
-                        <!--<Label ellipsisString="" text="logout" textAlignment="RIGHT">
-                            <HBox.margin>
-                                <Insets top="7.0" />
-                            </HBox.margin>
-                        </Label>-->
                         <Button fx:id="btn_logout" onAction="#logout_click" prefHeight="24.0" prefWidth="70.0" style="-fx-background-color: #efefef;" text="Logout" textAlignment="CENTER">
                             <effect>
                                 <DropShadow blurType="GAUSSIAN" color="#00000066" offsetX="3.0" offsetY="3.0"/>
@@ -92,14 +65,6 @@
                                 <Font name="Nirmala UI Bold" size="13.0"/>
                             </font>
                         </Button>
-                        <!--<ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image fx:id="img_logout" backgroundLoading="true" url="@../../../../../../assets/Icons/fi-power.png" />
-                            </image>
-                            <HBox.margin>
-                                <Insets right="4.0" />
-                            </HBox.margin>
-                        </ImageView>-->
                     </children>
                 </HBox>
             </children>

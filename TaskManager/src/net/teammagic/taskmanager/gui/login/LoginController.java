@@ -12,6 +12,7 @@ import net.teammagic.taskmanager.Main;
 import net.teammagic.taskmanager.api.PostArgument;
 import net.teammagic.taskmanager.api.PostArgument.ARGS;
 import net.teammagic.taskmanager.api.WebApi;
+import net.teammagic.taskmanager.gui.WindowManager;
 import net.teammagic.taskmanager.gui.home.HomeController;
 
 public class LoginController {
@@ -19,39 +20,19 @@ public class LoginController {
     @FXML
     private TextField txt_username;
     @FXML
-    private PasswordField txt_password;
+    public PasswordField txt_password;
     @FXML
     private Label lbl_loginerror;
-
-    private static Stage loginStage;
-
-    public static void initLoginWindow(Stage rootStage) {
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(Main.class.getResource("gui/login/login.fxml"));
-        } catch (Exception e) {
-            System.out.println("Resource /login.fxml not found or damaged! exiting...");
-            System.exit(-1);
-        }
-
-        loginStage = rootStage;
-        loginStage.setTitle("Task Manger Login");
-        loginStage.setScene(new Scene(root));
-        loginStage.setResizable(false);
-        loginStage.show();
-    }
 
     @FXML
     public void login_click() {
         WebApi api = new WebApi("http://teammagic722.bplaced.net/backend/register_login.php");
         String result = api.postRequest(new PostArgument<>(ARGS.isLogin.toString(), 1), new PostArgument<>(ARGS.username.toString(), txt_username.getText()),
                 new PostArgument<>(ARGS.password.toString(), txt_password.getText()));
-
         String token = result.substring(result.lastIndexOf(": \"", result.length() - 2) + 3, result.length() - 2);
-
         if (result.startsWith("{\"error\": \"none\"")) {
-            HomeController.initHomeWindow(token);
-            loginStage.close();
+            WindowManager.initHomeWindow(token);
+            WindowManager.loginStage.close();
         } else if (result.startsWith("{\"error\": \"wrong_pw\"")) {
             showError("Login failed! Wrong password.");
         } else if (result.startsWith("'{\"error\": \"user_not_exists\"")) {
