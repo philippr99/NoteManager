@@ -36,7 +36,7 @@ public class HomeController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        WebApi api = new WebApi("http://teammagic722.bplaced.net/backend/listTasks.php");
+        WebApi api = new WebApi("http://"+Data.url+"/backend/listTasks.php");
         String result = api.postRequest(new PostArgument<>(ARGS.sessionID.toString(), Data.sessionID));
         System.out.println(result);
         loadTable(result);
@@ -75,14 +75,14 @@ public class HomeController implements Initializable{
 
     @FXML
     void refresh_click() {
-        WebApi api = new WebApi("http://teammagic722.bplaced.net/backend/listTasks.php");
+        WebApi api = new WebApi("http://"+Data.url+"/backend/listTasks.php");
         String result = api.postRequest(new PostArgument<>(ARGS.sessionID.toString(), Data.sessionID));
         System.out.println(result);
     }
 
     @FXML
     void logout_click() {
-        new WebApi("http://teammagic722.bplaced.net/backend/logout.php");
+        new WebApi("http://"+Data.url +"/backend/logout.php");
         WindowManager.initLoginWindow(new Stage());
         WindowManager.homeStage.close();
     }

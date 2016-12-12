@@ -14,6 +14,7 @@ import net.teammagic.taskmanager.api.PostArgument.ARGS;
 import net.teammagic.taskmanager.api.WebApi;
 import net.teammagic.taskmanager.gui.WindowManager;
 import net.teammagic.taskmanager.gui.home.HomeController;
+import net.teammagic.taskmanager.model.Data;
 
 public class LoginController {
 
@@ -26,7 +27,7 @@ public class LoginController {
 
     @FXML
     public void login_click() {
-        WebApi api = new WebApi("http://teammagic722.bplaced.net/backend/register_login.php");
+        WebApi api = new WebApi("http://"+ Data.url+"/backend/register_login.php");
         String result = api.postRequest(new PostArgument<>(ARGS.isLogin.toString(), 1), new PostArgument<>(ARGS.username.toString(), txt_username.getText()),
                 new PostArgument<>(ARGS.password.toString(), txt_password.getText()));
         String token = result.substring(result.lastIndexOf(": \"", result.length() - 2) + 3, result.length() - 2);
@@ -42,10 +43,9 @@ public class LoginController {
 
     @FXML
     public void register_click() {
-        WebApi api = new WebApi("http://teammagic722.bplaced.net/backend/register_login.php"); //"http://teammagic722.bplaced.net/backend/register_login.php"
+        WebApi api = new WebApi("http://"+Data.url+"/backend/register_login.php"); //"http://teammagic722.bplaced.net/backend/register_login.php"
         String result = api.postRequest(new PostArgument<>(ARGS.isLogin.toString(), 0), new PostArgument<>(ARGS.username.toString(), txt_username.getText()),
                 new PostArgument<>(ARGS.password.toString(), txt_password.getText()));
-
         if (result.startsWith("{\"error\": \"name_exists\"")) showError("Registration failed! Username already exists");
         else showError("Registration completed!");
     }
