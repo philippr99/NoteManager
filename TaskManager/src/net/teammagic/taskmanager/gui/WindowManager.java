@@ -7,15 +7,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import net.teammagic.taskmanager.Main;
-import net.teammagic.taskmanager.api.PostArgument;
-import net.teammagic.taskmanager.api.WebApi;
 import net.teammagic.taskmanager.model.Data;
 
 import java.io.IOException;
 
-/**
- * Created by s3now on 12/12/16.
- */
 public final class WindowManager {
 
     public static Stage homeStage;
@@ -62,6 +57,7 @@ public final class WindowManager {
         try {
             root = FXMLLoader.load(Main.class.getResource("gui/home/home.fxml"));
         } catch (IOException e) {
+            e.printStackTrace();
             System.out.println("Resource /home.fxml not found or damaged! exiting...");
             System.exit(-1);
         }

@@ -5,8 +5,7 @@ public class PostArgument<ValueType> {
     private String key;
     private ValueType value;
 
-    public PostArgument(String key, ValueType value)
-    {
+    public PostArgument(String key, ValueType value) {
         this.key = key;
         this.value = value;
     }

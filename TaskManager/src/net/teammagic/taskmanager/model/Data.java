@@ -1,11 +1,8 @@
 package net.teammagic.taskmanager.model;
 
-/**
- * Created by s3now on 12/12/16.
- */
 public final class Data {
 
     public static String sessionID;
-    public static String url = "localhost";
+    public static String url = "teammagic722.bplaced.com";
 
 }

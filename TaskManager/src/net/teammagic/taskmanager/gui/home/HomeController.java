@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 
 import static net.teammagic.taskmanager.model.PostTextFormatter.getItems;
 
-public class HomeController implements Initializable{
+public class HomeController implements Initializable {
     @FXML
     public BorderPane borderPane;
     @FXML
@@ -36,17 +36,16 @@ public class HomeController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        WebApi api = new WebApi("http://"+Data.url+"/backend/listTasks.php");
+        WebApi api = new WebApi("http://" + Data.url + "/backend/listTasks.php");
         String result = api.postRequest(new PostArgument<>(ARGS.sessionID.toString(), Data.sessionID));
-        System.out.println(result);
         loadTable(result);
     }
 
     private void loadTable(String requestResult) {
-        table = new TableView<PostTextFormatter>();
+        table = new TableView<>();
         TableColumn titleCol = new TableColumn("Title");
         titleCol.setMinWidth(80);
-        titleCol.setCellValueFactory(new PropertyValueFactory<PostTextFormatter,String>("title"));
+        titleCol.setCellValueFactory(new PropertyValueFactory<PostTextFormatter, String>("title"));
 
         TableColumn categoryCol = new TableColumn("Category");
         categoryCol.setMinWidth(100);
@@ -57,10 +56,6 @@ public class HomeController implements Initializable{
         detailsCol.setCellValueFactory(new PropertyValueFactory<PostTextFormatter, String>("details"));
 
         ObservableList<PostTextFormatter> posts = getItems(requestResult);
-        for(PostTextFormatter post : posts)
-        {
-            System.out.println("Detail: "+post.details);
-        }
 
         table.setItems(posts);
         table.getColumns().addAll(titleCol, categoryCol, detailsCol);
@@ -75,14 +70,14 @@ public class HomeController implements Initializable{
 
     @FXML
     void refresh_click() {
-        WebApi api = new WebApi("http://"+Data.url+"/backend/listTasks.php");
+        WebApi api = new WebApi("http://" + Data.url + "/backend/listTasks.php");
         String result = api.postRequest(new PostArgument<>(ARGS.sessionID.toString(), Data.sessionID));
-        System.out.println(result);
+        loadTable(result);
     }
 
     @FXML
     void logout_click() {
-        new WebApi("http://"+Data.url +"/backend/logout.php");
+        new WebApi("http://" + Data.url + "/backend/logout.php");
         WindowManager.initLoginWindow(new Stage());
         WindowManager.homeStage.close();
     }
