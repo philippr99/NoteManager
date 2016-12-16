@@ -1,4 +1,5 @@
 <?php
+  include('../extensions/secureLib.php');
   session_start();
   if(!isset($_SESSION['loggedIn']))
   {
@@ -23,7 +24,7 @@
   <body>
 
     <div id="header">
-      <p class="tags" id="first"><?php echo 'Welcome @'.$_SESSION['username'];?></p>
+      <p class="tags" id="first"><?php secureEcho('Welcome @'.$_SESSION['username']);?></p>
       <a class="tags" id="middle" href="../sites/addPostSite.php">Add a note!</a>
       <a class="tags" id="last" href="../backend/logout.php">Logout</a>
     </div>
@@ -38,7 +39,7 @@
           {
             while($row = $getNoteData->fetch())
             {
-              echo '<div class="note"><span onclick="deletePostEvent(this)" class="glyphicon glyphicon-remove removePost"><p class="hash">'.$row[1].'</p></span><h1>'.$row[2].'</h1><p>'.$row[4].'</p></div>';
+              echo '<div class="note"><span onclick="deletePostEvent(this)" class="glyphicon glyphicon-remove removePost"><p class="hash">'.secureString($row[1]).'</p></span><h1>'.secureString($row[2]).'</h1><p>'.secureString($row[4]).'</p></div>';
             }
           }
           $db = null;

@@ -1,4 +1,5 @@
 <?php
+  include('../extensions/secureLib.php');
   session_start();
   if(!isset($_SESSION['loggedIn']))
   {
@@ -22,7 +23,7 @@
   </head>
   <body>
     <div id="header">
-      <p class="tags" id="first"><?php echo '@'.$_SESSION['username'];?></p>
+      <p class="tags" id="first"><?php secureEcho('@'.$_SESSION['username']);?></p>
       <a class="tags" id="last" href="../backend/logout.php">Logout</a>
       <a class="tags" id="last" href="../sites/home.php">Back</a>
     </div>
