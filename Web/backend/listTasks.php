@@ -18,7 +18,7 @@ if (isset($_POST['sessionID'])) {
             if ($getNoteData->execute()) {
                 while ($row = $getNoteData->fetch()) {
                     //name varchar(100),uniqid varchar(100),topic varchar(100), category varchar(100),textPost text)");
-                      $jsonResult=   $jsonResult.'{"sessionID":"' . $row[1] . '","topic":"' . $row[2] . '", "category":"' . $row[3] . '", "post":"' . $row[4] . '"},';
+                      $jsonResult=   $jsonResult.'{"noteID":"' . $row[1] . '","topic":"' . $row[2] . '", "category":"' . $row[3] . '", "post":"' . $row[4] . '"},';
                 }
             }
               $jsonResult= substr_replace($jsonResult,"",strlen($jsonResult)-1).']';

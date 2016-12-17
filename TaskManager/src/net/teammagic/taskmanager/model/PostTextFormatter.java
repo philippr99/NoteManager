@@ -6,29 +6,28 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class PostTextFormatter {
-    public String title, category, details;
+    private String title, category, details, noteID;
 
-    public PostTextFormatter(String title, String category, String details) {
+    public PostTextFormatter(String title, String category, String details, String noteID) {
         this.title = title;
         this.category = category;
         this.details = details;
+        this.noteID = noteID;
     }
 
     public static ObservableList<PostTextFormatter> getItems(String requestResult) {
         Gson json = new Gson();
 
-        TableContent[] ptf = null;
+        TableContent[] ptf;
         try {
             ptf = json.fromJson(requestResult, TableContent[].class);
-        } catch (JsonSyntaxException jse){
+        } catch (JsonSyntaxException jse) {
             System.out.println("Json Syntax Exception: " + jse.getMessage());
             return null;
         }
 
         ObservableList<PostTextFormatter> contents = FXCollections.observableArrayList();
-
-        for (TableContent tbc : ptf) contents.add(new PostTextFormatter(tbc.topic, tbc.category, tbc.post));
-
+        for (TableContent tbc : ptf) contents.add(new PostTextFormatter(tbc.topic, tbc.category, tbc.post, tbc.noteID));
         return contents;
     }
 
@@ -36,23 +35,15 @@ public class PostTextFormatter {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getCategory() {
         return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public String getDetails() {
         return details;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
+    public String getNoteID() {
+        return noteID;
     }
 }
