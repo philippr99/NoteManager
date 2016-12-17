@@ -11,6 +11,9 @@ import net.teammagic.taskmanager.model.Data;
 
 import java.io.IOException;
 
+/**
+ * Created by s3now on 12/12/16.
+ */
 public final class WindowManager {
 
     public static Stage homeStage;

@@ -38,13 +38,12 @@ public class WebApi {
 
             return result;
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("postRequestError: " + e.getMessage());
         }
         return null;
     }
 
-    public String textToMD5(String input)
-    {
+    public String textToMD5(String input) {
         throw new NotImplementedException();
     }
 }
