@@ -6,11 +6,11 @@
   <br>
   <img src="https://img.shields.io/badge/released-private-orange.svg" alt="released">
   <img src="https://img.shields.io/badge/creator-Philipp R. & Martin N.-blue.svg" alt="creator">
-  <img src="https://img.shields.io/badge/license-GNU-green.svg" alt="license">
+  <img src="https://img.shields.io/badge/license-GNU GPL-green.svg" alt="license">
 <p>
 
 # Introduction
-NoteManager is a little organization tool, which we made in our freetime. It's only in private use and we are not going to publish it. But if you want to test it or to have a look here is an test page: <a href="http://teammagic722.bplaced.net">Hit me!</a>
+NoteManager is a little organization tool, which we made in our freetime. It's only in private use and we are not going to publish it. But if you want to test it or to have a look here is a little test page: <a href="http://teammagic722.bplaced.net">Hit me!</a>
 
 # Used Applications:
 ### Philipp R:
