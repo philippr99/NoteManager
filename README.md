@@ -3,6 +3,7 @@
   <br>
   <strong>NoteManager your organization tool!</strong>
   <br>
+  <br>
   <img src="https://img.shields.io/badge/released-private-orange.svg" alt="released">
   <img src="https://img.shields.io/badge/creator-Philipp R. & Martin N.-blue.svg" alt="creator">
   <img src="https://img.shields.io/badge/license-GNU-green.svg" alt="license">
